@@ -1,17 +1,16 @@
 #include <stdio.h>
 
-int f(int n){
-    if(n)
-    return f(n-1)+n;
-    else{
-        return n;
+int euclideanA(int m, int n) {
+    if (n == 0) {
+        return m;  // Base case: GCD of m and 0 is m
+    } else {
+        return euclideanA(n, m % n);  // Recursive case
     }
-    f(4);
-   
 }
-int main(){
-    int n;
-     printf("F(4)==%d\n",f(4));
-return 0;
 
+int main() {
+    int m = 43;
+    int n = 10;
+    printf("GCD of %d and %d is %d\n", m, n, euclideanA(m, n));
+    return 0;
 }
